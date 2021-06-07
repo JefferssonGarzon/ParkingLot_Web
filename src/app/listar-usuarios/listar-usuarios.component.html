@@ -1,0 +1,51 @@
+<h3>Usuarios</h3>
+<mat-form-field>
+    <mat-label>opciones de busqueda</mat-label>
+    <mat-select value='none' (selectionChange)='saveChanges($event)'>
+        <mat-option value='none'>ninguno</mat-option>
+        <mat-option value='document'>Documento</mat-option>
+        <mat-option value='name'>Nombre</mat-option>
+        <mat-option value='email'>Correo</mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Campo de busqueda</mat-label>
+    <input matInput placeholder="" type="text" [formControl]='searchUser'>
+</mat-form-field>
+<button mat-raised-button class="busqueda" color="warn" (click)='getSearch($event)'>Buscar</button>
+<br>
+<button mat-raised-button class="all-list" color="warn" (click)='getAllUsers($event)'>Ver todos los usuarios</button>
+<ng-container *ngIf='users'>
+    <div>
+        <table class="table table-striped">
+            <thead class="">
+                <tr>
+                    <th scope="col">NumDocumento</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">NumTelefono</th>
+                    <th scope="col">Genero</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let user of users'>
+                    <td> {{ user.document }} </td>
+                    <td> {{ user.name }} </td>
+                    <td> {{ user.email }} </td>
+                    <td> {{ user.cellphone }} </td>
+                    <td> {{ user.gender }} </td>
+                    <button (click)='getDelUser(user.id)' mat-raised-button id="delete">
+                        <span class="material-icons">
+                            delete
+                        </span>
+                    </button>
+                    <button mat-raised-button id="edit">
+                        <span class="material-icons">
+                            mode_edit
+                        </span>
+                    </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

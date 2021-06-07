@@ -1,0 +1,22 @@
+.main-container {
+    min-height: 80vh;
+}
+
+.foo {
+    background: rgb(39, 36, 36); 
+    min-height: 20vh;
+    color: blanchedalmond;
+    text-align: center;
+    font-family: KoHo;
+    font-size: 20px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.foo-name {
+    font-size: 23px;
+}
+
+.d-min {
+    font-size: 15px;
+}

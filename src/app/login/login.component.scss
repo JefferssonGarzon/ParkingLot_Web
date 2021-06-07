@@ -1,0 +1,66 @@
+* {
+    font-family: 'KoHo', sans-serif;
+}
+
+form {
+    background: transparent;
+    border-radius: 20px;
+    min-height: 80vh;
+    width: 30%;
+}
+
+.logo-form {
+    width: 50%
+}
+
+small {
+    color: red;
+}
+
+input[type=email], input[type=password] {
+    border: 0;
+    border-bottom: 1px solid gray;
+    background: transparent;
+    width: 90%;
+}
+
+input[type=checkbox] {
+    margin-left: 20px;
+    margin-block: auto;
+    margin-right: 10px;
+}
+
+button {
+    background: #e4e713;
+    width: 100%;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0;
+    text-decoration: none;
+    outline: none;
+    
+}
+
+button:disabled, button:disabled:hover {
+    background: gray;
+}
+
+button:hover {
+    background: orange;
+}
+
+// button {
+//     // padding-inline: 15px;
+//     // padding-block: 6px;
+//     // border-radius: 10px;
+//     // background: #e4e713;
+    
+//     // text-transform: capitalize;
+//     // font-size: medium;
+//     // color: black;
+    
+// }
+

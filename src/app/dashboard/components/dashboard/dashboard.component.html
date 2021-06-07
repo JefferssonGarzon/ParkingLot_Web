@@ -1,0 +1,39 @@
+<ng-sidebar-container class="s">
+    <ng-sidebar #sidebar position="left" mode="push" [showBackdrop]="true" [closeOnClickOutside]="false" [animate]="true"> 
+        <div class="sidebar-container">
+            <div class="">
+                <span id="close" (click)="sidebar.close()" class="material-icons-outlined">
+                    close
+                </span>
+            </div>
+            <br>
+            <div class="opciones">
+                <a (click)="sidebar.close()" routerLink="/dashboard">Inicio</a>
+            </div>
+            <div class="opciones">
+                <a (click)="sidebar.close()" routerLink="/dashboard/usuarios">Ver usuarios</a>
+            </div>
+            <div class="opciones">
+                <a (click)="sidebar.close()" routerLink="/dashboard/parking-slots">Ver estacionamientos</a>
+            </div>
+            <div class="opciones">
+                <a>Ver reserva</a>
+            </div>
+            <div class="opciones">
+                <a>Pagar reserva</a>
+            </div>
+            <hr>
+            <a (click)="onLogout()" class="sal-btn">Cerrar sesion</a>
+        </div>
+    </ng-sidebar>
+    <div ng-sidebar-content>
+        <div class="menu-bar">
+            <span (click)="sidebar.open()" class="material-icons-outlined" id="mem">
+                menu
+            </span>
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</ng-sidebar-container>

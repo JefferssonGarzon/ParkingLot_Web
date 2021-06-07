@@ -1,0 +1,39 @@
+* {
+    padding: 1%;
+}
+
+.busqueda {
+    background: orange;
+    color: black;
+}
+
+.busqueda:hover {
+    background: rgb(216, 146, 16);
+}
+
+.all-list {
+    background: #e4e713;
+    color: black;
+    margin-left: 15px;
+}
+
+.all-list:hover {
+    background: #bfc21b;
+}
+
+#delete {
+    background: #e4e713;
+    margin: 10px;
+}
+
+#delete:hover {
+    background: orangered;
+}
+
+#edit {
+    background: rgb(7, 194, 7);
+}
+
+#edit:hover {
+    background: green;
+}

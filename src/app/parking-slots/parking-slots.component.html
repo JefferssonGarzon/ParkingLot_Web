@@ -1,0 +1,10 @@
+
+<div class="container">
+    <button id="ver-list" (click)='getSlots()' mat-raised-button color="warn">Mostrar Parking</button>
+    <hr>
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <mat-grid-tile *ngFor='let slot of viewSlots'> 
+            {{ slot + 1 }}
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

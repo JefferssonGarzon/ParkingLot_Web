@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+    <form [formGroup]="form" action="" class="text-center d-flex flex-column justify-content-center">
+        <div>
+            <img class="logo-form" src="../../assets/images/logotipo.png" alt="">
+        </div>
+        <div>
+            <h3>Iniciar sesion</h3>
+        </div>
+        <br>
+        <br>
+        <div class="">
+            <label for="email">Direccion email</label>
+            <br>
+            <input id="email" type="email" formControlName="user">
+            <br>
+            <small *ngIf="form.get('user').hasError('required') && form.get('user').touched">
+                Este campo es requerido
+            </small>
+            <small *ngIf="form.get('user').hasError('email') && form.get('user').touched">
+                Email no valido
+            </small>
+        </div>
+        <br>
+        <div class="">
+            <label for="password">Contraseña</label>
+            <br>
+            <input id="password" type="password" formControlName="password">
+            <br>
+            <small *ngIf="form.get('password').hasError('required') && form.get('password').touched">
+                Este campo es requerido
+            </small>
+        </div>
+        <div class="d-flex mt-3">
+            <input type="checkbox" name="" id="checkbox" formControlName="keep_logged_in">
+            <label for="checkbox">Mantener la sesion</label>
+        </div>
+        <br>
+        <button (click)="save(form.value)" [disabled]="!form.valid" type="submit">Entrar</button>
+    </form>    
+</div>

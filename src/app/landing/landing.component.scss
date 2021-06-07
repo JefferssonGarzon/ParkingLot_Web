@@ -1,0 +1,77 @@
+
+.papa {
+    min-height: 80vh;
+}
+
+.logo {
+    width: 100px;
+    margin-block: auto;
+
+}
+
+.titulo {
+    margin-block: auto;
+    font-weight: 900;
+}
+
+.header-block, h4 { 
+    height: 13vh;
+    padding-left: 15px;
+    background: silver;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+
+.lr-btns {
+    padding: 30px;
+}
+
+.btns {
+    padding-inline: 15px;
+    padding-block: 6px;
+    border-radius: 5px;
+    background: #e4e713;
+    text-decoration: none;
+    font-family: 'KoHo', sans-serif;
+    text-transform: capitalize;
+    font-size: medium;
+    color: black;
+    font-weight: bold;
+}
+
+a:hover {
+    background: orange;
+}
+
+.circle-container {
+    height: 67vh;
+    display: flex;
+}
+
+.circle-text {
+border-radius: 50%;
+background: rgb(39, 36, 36); 
+width: 250px;
+height: 250px;
+left: 558px;
+top: 203px;
+margin: auto;
+display: flex;
+}
+
+.msn-circle {
+    top: 90px;
+    font-family: KoHo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px;
+    margin: auto;
+    color: blanchedalmond;
+}
+
+
+
+
+
