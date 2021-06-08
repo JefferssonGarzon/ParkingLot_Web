@@ -1,11 +1,33 @@
+* {
+    font-family: Koho;
+    color: black;
+    font-size: 16px;
+}
+
 #ver-list {
     margin-top: 15px;
 }
 
-.ocupado {
+h1 {
+    margin-top: 10px;
+    
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.Ocupado {
     background: red;
 }
 
-.disponible {
+.Ocupado:hover {
+    background:darkred;
+}
+
+.Disponible {
     background: green;
+}
+
+.Disponible:hover {
+    background: darkgreen;
 }

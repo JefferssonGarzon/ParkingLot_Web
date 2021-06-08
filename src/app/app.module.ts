@@ -24,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { ParkingSlotsComponent } from './parking-slots/parking-slots.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatSelectModule,
     MatGridListModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

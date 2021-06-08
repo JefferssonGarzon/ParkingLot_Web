@@ -33,7 +33,3 @@ export interface Datos {
     status: string;
 }
 
-export interface pSlots {
-    count: number;
-    data: Datos[];
-}

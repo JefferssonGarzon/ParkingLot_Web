@@ -1,4 +1,4 @@
-<h3>Usuarios</h3>
+<h1>Usuarios</h1>
 <mat-form-field>
     <mat-label>opciones de busqueda</mat-label>
     <mat-select value='none' (selectionChange)='saveChanges($event)'>
@@ -35,14 +35,10 @@
                     <td> {{ user.cellphone }} </td>
                     <td> {{ user.gender }} </td>
                     <button (click)='getDelUser(user.id)' mat-raised-button id="delete">
-                        <span class="material-icons">
-                            delete
-                        </span>
+                        <img src="../../assets/images/delete.png">
                     </button>
                     <button mat-raised-button id="edit">
-                        <span class="material-icons">
-                            mode_edit
-                        </span>
+                        <img src="../../assets/images/edit.png">
                     </button>
                 </tr>
             </tbody>

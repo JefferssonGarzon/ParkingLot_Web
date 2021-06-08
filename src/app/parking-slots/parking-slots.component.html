@@ -1,10 +1,50 @@
 
 <div class="container">
-    <button id="ver-list" (click)='getSlots()' mat-raised-button color="warn">Mostrar Parking</button>
+    <h1 class="text-align-center">Parking slots</h1>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Información
+              </mat-panel-title>
+              <mat-panel-description>
+                Espacio de aparcamiento: {{ place_code }}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p> <b>Estado:</b> {{ statusSlot }} </p>
+
+            <!-- panel de Reservacion -->
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Reservacion
+                  </mat-panel-title>
+                  <mat-panel-description>
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <ng-container *ngIf="!band_reserva">
+                    <p> <b>Tipo de vehiculo:</b> {{ tipo_vehiculo }} </p>
+                    <p> <b>Hora de ingreso:</b> {{ hora_comienzo }} </p>
+                    <p> <b>Hora de salida:</b> {{ hora_final }} </p>
+                    <p> <b>Tipo de usuario:</b> {{ tipo_usuario }} </p>
+                    <p> <b>Documento del usuario:</b> {{ doc_user }} </p>
+                    <p> <b>Nombre del usuario:</b> {{ name_user }} </p>
+                    <p> <b>Correo del usuario:</b> {{ email_user }} </p>
+                    <p> <b>Genero del usuario:</b> {{ gen_user }} </p>
+                </ng-container>
+                <ng-container *ngIf='band_reserva'>
+                    <p> <b> {{ estado_reserva }} </b></p>
+                </ng-container>
+            </mat-expansion-panel>
+
+          </mat-expansion-panel>
+    </mat-accordion>
     <hr>
-    <mat-grid-list cols="5" rowHeight="2:1">
-        <mat-grid-tile *ngFor='let slot of viewSlots'> 
-            {{ slot + 1 }}
+
+    <mat-grid-list cols="5" rowHeight="1:1">
+            <mat-grid-tile (click)='viewData(slot)' *ngFor='let slot of viewSlots'
+        [ngClass]='{Ocupado:status[slot],Disponible:!status[slot]}'> 
+            <p><b>{{ codeSlot[slot] }}</b></p>
         </mat-grid-tile>
     </mat-grid-list>
 </div>

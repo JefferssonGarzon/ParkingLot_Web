@@ -1,5 +1,14 @@
+h1 {
+    font-family: Koho;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
 * {
     padding: 1%;
+    font-family: Koho;
+    font-size: 16px;
+    color: black;
 }
 
 .busqueda {
@@ -32,6 +41,7 @@
 
 #edit {
     background: rgb(7, 194, 7);
+    text-decoration: none;
 }
 
 #edit:hover {
