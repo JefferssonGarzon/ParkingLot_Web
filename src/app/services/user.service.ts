@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { authReq } from '../models/auth-req.model';
 import { environment } from 'src/environments/environment';
+import { dataEdit } from '../models/editData.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,11 @@ export class UserService {
   slotsInfo(){
     this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
     return this.http.get(environment.URL + `api/v1/parking_slot`, {headers: this.headers});
+  }
+
+  modifyUser(user:string, body:dataEdit[]) {
+    this.headers['Content-Type'] = 'application/json';
+    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    return this.http.patch(environment.URL + `api/v1/user/${user}`, body, {headers: this.headers});
   }
 }

@@ -51,12 +51,10 @@ export class ParkingSlotsComponent implements OnInit {
           this.status.push(false);
         }
       }
-      console.log(this.codeSlot);
     })
   }
 
   viewData(num:number){ 
-    console.log(this.slots[num]);
     this.place_code = this.slots[num].place_code;
     this.statusSlot = this.slots[num].status;
 

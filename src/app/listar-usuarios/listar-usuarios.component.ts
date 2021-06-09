@@ -1,7 +1,9 @@
 import { Component, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSelectChange } from '@angular/material/select';
 import { debounceTime } from 'rxjs/operators';
+import { EditPopUpComponent } from '../edit-pop-up/edit-pop-up.component';
 import { user } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
@@ -21,19 +23,18 @@ export class ListarUsuariosComponent implements OnInit{
 
   numPag: number = 1;
   tamPag: number = 10;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private dialog: MatDialog) { }
 
   ngOnInit() {
     
   }
 
-  getAllUsers(event: Event) {
-    event.preventDefault();
+  getAllUsers() {
     this.userService.viewUsers(this.numPag, this.tamPag).subscribe(data => {
       this.users = data['data'];
     },error => {
       console.log(error.status);
-    })
+    })    
   }
 
   getSearch(event: Event) {
@@ -60,4 +61,18 @@ export class ListarUsuariosComponent implements OnInit{
       console.log(error.status);
     })
   }
+
+  openEdit(data:number){
+    const editRef = this.dialog.open(EditPopUpComponent, {
+      width:'500px',
+      height:'600px',
+      data: data,
+    });
+
+    editRef.afterClosed().subscribe(() => {
+      console.log('La edicion se cerró');
+      this.getAllUsers();
+    })
+  }
+
 }

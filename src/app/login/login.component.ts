@@ -22,10 +22,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // getInfo(event: Event){
-  //   event.preventDefault();
-  // }
-
   private buildForm(){
     this.form = new FormGroup({
       user: new FormControl('',Validators.compose([Validators.required, Validators.email])),
@@ -33,10 +29,6 @@ export class LoginComponent implements OnInit {
       keep_logged_in: new FormControl(false),
     });
 
-  //   this.form.valueChanges
-  //   .pipe(debounceTime(600)).subscribe(value => {
-  //     console.log(value);
-  //   });
   }
 
   save(data) {
@@ -45,7 +37,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem(
         'token', response['token']
       )
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard/inicio']);
     },error => {
       console.log(error.status);
     })

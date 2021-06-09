@@ -25,6 +25,11 @@ import {MatSelectModule} from '@angular/material/select';
 import { ParkingSlotsComponent } from './parking-slots/parking-slots.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { EditPopUpComponent } from './edit-pop-up/edit-pop-up.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { StartingScreenComponent } from './starting-screen/starting-screen.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     PageNotFoundComponent,
     FiltroUsuariosPipe,
     ParkingSlotsComponent,
+    EditPopUpComponent,
+    StartingScreenComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +57,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatGridListModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

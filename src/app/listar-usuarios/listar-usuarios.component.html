@@ -5,7 +5,7 @@
         <mat-option value='none'>ninguno</mat-option>
         <mat-option value='document'>Documento</mat-option>
         <mat-option value='name'>Nombre</mat-option>
-        <mat-option value='email'>Correo</mat-option>
+        <mat-option value='email'>Correo</mat-option> 
     </mat-select>
 </mat-form-field>
 <mat-form-field>
@@ -14,7 +14,7 @@
 </mat-form-field>
 <button mat-raised-button class="busqueda" color="warn" (click)='getSearch($event)'>Buscar</button>
 <br>
-<button mat-raised-button class="all-list" color="warn" (click)='getAllUsers($event)'>Ver todos los usuarios</button>
+<button mat-raised-button class="all-list" color="warn" (click)='getAllUsers()'>Ver todos los usuarios</button>
 <ng-container *ngIf='users'>
     <div>
         <table class="table table-striped">
@@ -37,7 +37,7 @@
                     <button (click)='getDelUser(user.id)' mat-raised-button id="delete">
                         <img src="../../assets/images/delete.png">
                     </button>
-                    <button mat-raised-button id="edit">
+                    <button (click)='openEdit(user.id)' mat-raised-button id="edit">
                         <img src="../../assets/images/edit.png">
                     </button>
                 </tr>
