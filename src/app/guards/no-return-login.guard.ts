@@ -6,10 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class NoReturnLoginGuard implements CanActivate {
-  user = localStorage.getItem('token')
+  
+  user; 
 
   constructor(private router: Router){
-
+    this.user = localStorage.getItem('token') || sessionStorage.getItem('token');
   }
 
   canActivate(){
@@ -17,7 +18,7 @@ export class NoReturnLoginGuard implements CanActivate {
       return true
     }
     else {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/dashboard/inicio']);
       console.log(this.user);
       return false
     }

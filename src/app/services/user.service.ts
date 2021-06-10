@@ -13,10 +13,12 @@ import { dataEdit } from '../models/editData.model';
 export class UserService {
 
   headers = {}
+  storageToken;
   constructor(
     private http: HttpClient
   ) { 
     this.headers['Content-Type'] = 'application/json';
+    this.storageToken = localStorage.getItem('token') || sessionStorage.getItem('token');
   }
 
   checkEmail(body: authReq){
@@ -25,6 +27,7 @@ export class UserService {
 
   logOut(){
     localStorage.clear();
+    sessionStorage.clear();
   }
 
   // Ver usuarios
@@ -32,28 +35,28 @@ export class UserService {
     var startRange = ((page * size) - size);
     var endRange = (page * size) - 1;
     this.headers['Range'] = `${startRange}-${endRange}`
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.storageToken;
     return this.http.get(environment.URL + 'api/v1/user', {headers: this.headers});
   }
 
   filterBy(opc:string, search: string) {
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.storageToken;
     return this.http.get(environment.URL + `api/v1/user?${opc}=${search}`, {headers: this.headers});
   }
 
   deleteUser(user: number) {
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.storageToken;
     return this.http.delete(environment.URL + `api/v1/user/${user}`, {headers: this.headers}); 
   }
   
   slotsInfo(){
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.storageToken;
     return this.http.get(environment.URL + `api/v1/parking_slot`, {headers: this.headers});
   }
 
   modifyUser(user:string, body:dataEdit[]) {
     this.headers['Content-Type'] = 'application/json';
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.storageToken;
     return this.http.patch(environment.URL + `api/v1/user/${user}`, body, {headers: this.headers});
   }
 }

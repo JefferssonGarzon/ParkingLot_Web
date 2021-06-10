@@ -26,7 +26,6 @@ export class EditPopUpComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.idUser);
   }
 
   onNoClick(){
@@ -51,14 +50,13 @@ export class EditPopUpComponent implements OnInit {
       }
     })
     this.dEdit = data;
-    console.log(this.dEdit);
 
     this.userService.modifyUser(this.idUser, this.dEdit).subscribe(dataE => {
       alert('modificacion exitosa');
       this.onNoClick();
     }, (error) => {
       console.log(error.status);
-      alert('Debe haber al menos un campo lleno');
+      alert('Debe haber al menos un campo lleno o seleccionado');
     })
   }
 }

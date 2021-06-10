@@ -12,9 +12,9 @@
     <mat-label>Campo de busqueda</mat-label>
     <input matInput placeholder="" type="text" [formControl]='searchUser'>
 </mat-form-field>
-<button mat-raised-button class="busqueda" color="warn" (click)='getSearch($event)'>Buscar</button>
+<button mat-raised-button class="busqueda" (click)='getSearch($event)'>Buscar</button>
 <br>
-<button mat-raised-button class="all-list" color="warn" (click)='getAllUsers()'>Ver todos los usuarios</button>
+<button mat-raised-button class="all-list" (click)='getAllUsers()'>Ver todos los usuarios</button>
 <ng-container *ngIf='users'>
     <div>
         <table class="table table-striped">

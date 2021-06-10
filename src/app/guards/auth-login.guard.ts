@@ -7,10 +7,10 @@ import { Observable } from 'rxjs';
 })
 export class AuthLoginGuard implements CanActivate {
 
-  user = localStorage.getItem('token')
-
+  user;
+    
   constructor(private router: Router){
-
+    this.user = localStorage.getItem('token') || sessionStorage.getItem('token');
   }
 
   canActivate(){
