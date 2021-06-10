@@ -12,6 +12,7 @@
     top: 203px;
     margin: auto;
     display: flex;
+    flex-direction: column;
 }
 
 .msn-circle {
@@ -19,8 +20,10 @@
     font-family: KoHo;
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 25px;
     line-height: 31px;
-    margin: auto;
+    margin:auto;
     color: blanchedalmond;
+    // justify-content: center;
+    align-items: center;
 }

@@ -30,6 +30,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { EditPopUpComponent } from './edit-pop-up/edit-pop-up.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StartingScreenComponent } from './starting-screen/starting-screen.component';
+import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { StartingScreenComponent } from './starting-screen/starting-screen.compo
     ParkingSlotsComponent,
     EditPopUpComponent,
     StartingScreenComponent,
+    PnfDashboardComponent,
   ],
   imports: [
     BrowserModule,
