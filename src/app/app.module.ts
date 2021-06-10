@@ -31,6 +31,8 @@ import { EditPopUpComponent } from './edit-pop-up/edit-pop-up.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StartingScreenComponent } from './starting-screen/starting-screen.component';
 import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
+import { ListarReservasComponent } from './listar-reservas/listar-reservas.component';
+import { EditReservaComponent } from './edit-reserva/edit-reserva.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,14 @@ import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
     ProfileComponent,
     LandingComponent,
     ListarUsuariosComponent,
+    ListarReservasComponent,
     PageNotFoundComponent,
     FiltroUsuariosPipe,
     ParkingSlotsComponent,
     EditPopUpComponent,
     StartingScreenComponent,
     PnfDashboardComponent,
+    EditReservaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { ListarUsuariosComponent } from '../listar-usuarios/listar-usuarios.component';
+import {ListarReservasComponent} from '../listar-reservas/listar-reservas.component'
 import { ParkingSlotsComponent } from '../parking-slots/parking-slots.component';
 import { PnfDashboardComponent } from '../pnf-dashboard/pnf-dashboard.component';
 import { StartingScreenComponent } from '../starting-screen/starting-screen.component';
@@ -23,6 +24,11 @@ const routes: Routes = [
                 path: 'inicio',
                 component: StartingScreenComponent,
             },
+            {
+
+                path: 'reservas',
+                component: ListarReservasComponent,
+            }
         ]
     },
     {
