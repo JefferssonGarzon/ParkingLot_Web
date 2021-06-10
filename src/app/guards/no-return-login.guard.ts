@@ -10,7 +10,7 @@ export class NoReturnLoginGuard implements CanActivate {
   user; 
 
   constructor(private router: Router){
-    this.user = localStorage.getItem('token') || sessionStorage.getItem('token');
+    this.user = localStorage.getItem('token');
   }
 
   canActivate(){

@@ -36,17 +36,10 @@ export class LoginComponent implements OnInit {
     this.userService.checkEmail(data).subscribe(response => {
       // localStorage.setItem(
       //   'token', response['token']
-        console.log(data);
-        
-        if(data['keep_logged_in'] == true) {
-          localStorage.setItem('token', response['token']);
-        }else {
-          sessionStorage.setItem('token', response['token']);
-        }
+        localStorage.setItem('token', response['token']);
         this.router.navigate(['/dashboard/inicio']);
     }),(error => {
       console.log(error.status);
     })
-
   }
 }
