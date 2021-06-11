@@ -12,6 +12,7 @@ import { dataEdit } from '../models/editData.model';
 
 export class UserService {
 
+  user;
   headers = {}
   constructor(
     private http: HttpClient
@@ -25,36 +26,42 @@ export class UserService {
 
   logOut(){
     localStorage.clear();
+    sessionStorage.clear();
   }
 
   // Ver usuarios
   viewUsers(page: number, size: number) {
+    console.log(this.user);
     var startRange = ((page * size) - size);
     var endRange = (page * size) - 1;
     this.headers['Range'] = `${startRange}-${endRange}`
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user;
     return this.http.get(environment.URL + 'api/v1/user', {headers: this.headers});
   }
 
   filterBy(opc:string, search: string) {
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user
     return this.http.get(environment.URL + `api/v1/user?${opc}=${search}`, {headers: this.headers});
   }
 
   deleteUser(user: number) {
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user
     return this.http.delete(environment.URL + `api/v1/user/${user}`, {headers: this.headers}); 
   }
   
   slotsInfo(){
-    
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user
     return this.http.get(environment.URL + `api/v1/parking_slot`, {headers: this.headers});
   }
 
   modifyUser(user:string, body:dataEdit[]) {
     this.headers['Content-Type'] = 'application/json';
-    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user
     return this.http.patch(environment.URL + `api/v1/user/${user}`, body, {headers: this.headers});
   }
 }

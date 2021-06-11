@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   // emailField = new FormControl('', [Validators.required, Validators.email]);
   // passField = new FormControl('', [Validators.required, Validators.minLength(6)]);
   form: FormGroup;
-  
+  bandera_Keep:boolean = false;
   constructor(private userService: UserService, private router:Router) { 
     this.buildForm();
   }
@@ -32,11 +32,15 @@ export class LoginComponent implements OnInit {
   }
 
   save(data) {
-    data['type'] = 'admin';
+    data['type'] = 'admin'; 
     this.userService.checkEmail(data).subscribe(response => {
       // localStorage.setItem(
       //   'token', response['token']
-        localStorage.setItem('token', response['token']);
+        if(data['keep_logged_in']) {
+          localStorage.setItem('token', response['token']);
+        }else {
+          sessionStorage.setItem('token', response['token']);
+        }
         this.router.navigate(['/dashboard/inicio']);
     }),(error => {
       console.log(error.status);

@@ -10,7 +10,7 @@ export class AuthLoginGuard implements CanActivate {
   user;
     
   constructor(private router: Router){
-    this.user = localStorage.getItem('token');
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
   }
 
   canActivate(){
