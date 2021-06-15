@@ -1,6 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChange } from '@angular/core';
+import { Component, Injectable, Input, OnChanges, OnInit, SimpleChange } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginatorIntl, MatPaginator, MatPaginatorDefaultOptions, MAT_PAGINATOR_DEFAULT_OPTIONS } from '@angular/material/paginator';
 import { MatSelectChange } from '@angular/material/select';
 import { debounceTime } from 'rxjs/operators';
 import { EditPopUpComponent } from '../edit-pop-up/edit-pop-up.component';
@@ -13,7 +14,9 @@ import { UserService } from '../services/user.service';
   templateUrl: './listar-usuarios.component.html',
   styleUrls: ['./listar-usuarios.component.scss']
 })
-export class ListarUsuariosComponent implements OnInit{
+
+@Injectable()
+export class ListarUsuariosComponent extends MatPaginatorIntl implements OnInit{
 
   users: user[];
   searchUser = new FormControl('');
@@ -22,16 +25,25 @@ export class ListarUsuariosComponent implements OnInit{
   getOpc: string;
 
   numPag: number = 1;
+  lenght: number;
   tamPag: number = 10;
-  constructor(private userService: UserService, private dialog: MatDialog) { }
+
+  constructor(private userService: UserService, private dialog: MatDialog) {
+    super();
+    this.itemsPerPageLabel = 'Items por pagina:';
+    this.previousPageLabel = 'pagina anterior';
+    this.nextPageLabel = 'pagina siguiente';
+    this.getRangeLabel = () => `${this.numPag} - ${this.tamPag}`;
+  }
 
   ngOnInit() {
-    
+
   }
 
   getAllUsers() {
     this.userService.viewUsers(this.numPag, this.tamPag).subscribe(data => {
       this.users = data['data'];
+      this.lenght = data['count'];
     },error => {
       console.log(error.status);
     })    
@@ -70,7 +82,6 @@ export class ListarUsuariosComponent implements OnInit{
     });
 
     editRef.afterClosed().subscribe(() => {
-      console.log('La edicion se cerró');
       this.getAllUsers();
     })
   }

@@ -41,6 +41,7 @@ export class ParkingSlotsComponent implements OnInit {
     this.userService.slotsInfo().subscribe(data => {
       this.numSlots = data['count'];
       this.slots = data['data'];
+      
       for(let i = 0; i < this.numSlots; i++) {
         this.viewSlots.push(i);
         this.codeSlot.push(this.slots[i].place_code);
@@ -51,7 +52,7 @@ export class ParkingSlotsComponent implements OnInit {
           this.status.push(false);
         }
       }
-    })
+    })  
   }
 
   viewData(num:number){ 

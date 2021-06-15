@@ -31,7 +31,6 @@ export class UserService {
 
   // Ver usuarios
   viewUsers(page: number, size: number) {
-    console.log(this.user);
     var startRange = ((page * size) - size);
     var endRange = (page * size) - 1;
     this.headers['Range'] = `${startRange}-${endRange}`

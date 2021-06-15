@@ -31,6 +31,7 @@ import { EditPopUpComponent } from './edit-pop-up/edit-pop-up.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { StartingScreenComponent } from './starting-screen/starting-screen.component';
 import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,12 @@ import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
     MatDialogModule,
     MatCheckboxModule,
     MatRadioModule,
+    MatPaginatorModule,
   ],
-  providers: [],
+  providers: [{
+    provide: MatPaginatorIntl,
+    useClass: ListarUsuariosComponent
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
