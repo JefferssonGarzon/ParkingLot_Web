@@ -32,6 +32,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import { StartingScreenComponent } from './starting-screen/starting-screen.component';
 import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+import { ListarReservasComponent } from './listar-reservas/listar-reservas.component';
+import { EditReservaComponent } from './edit-reserva/edit-reserva.component';
+import { PagarReservaComponent } from './pagar-reserva/pagar-reserva.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +43,15 @@ import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'
     ProfileComponent,
     LandingComponent,
     ListarUsuariosComponent,
+    ListarReservasComponent,
     PageNotFoundComponent,
     FiltroUsuariosPipe,
     ParkingSlotsComponent,
     EditPopUpComponent,
     StartingScreenComponent,
     PnfDashboardComponent,
+    EditReservaComponent,
+    PagarReservaComponent,
   ],
   imports: [
     BrowserModule,

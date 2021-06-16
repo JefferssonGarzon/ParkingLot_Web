@@ -1,0 +1,38 @@
+<h1>Reservas</h1>
+<button mat-raised-button class="all-listt" (click)='getAllReservations()'>Recargar Reservas</button>
+<ng-container *ngIf='reservations'>
+    <div>
+        <table class="table table-striped">
+            <thead class="">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Hora Inicial</th>
+                    <th scope="col">Hora Final</th>
+                    <th scope="col">Placa</th>
+                    <th scope="col">Vehiculo</th>
+                    <th scope="col">Slot</th>
+                    <th scope="col">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let reservation of reservations'>
+                    <td> {{ reservation.id }} </td>
+                    <td> {{ reservation.user.name }} </td>
+                    <td> {{ reservation.initial_hour }} </td>
+                    <td> {{ reservation.final_hour }} </td>
+                    <td> {{ reservation.number_plate }} </td>
+                    <td> {{ reservation.vehicle_type }} </td>
+                    <td> {{ reservation.slot }} </td>
+                    <td> {{reservation.status}} </td>
+                    <button  (click)='getDelReservation(reservation.id )' mat-raised-button id="delete">
+                        <img src="../../assets/images/delete.png">
+                    </button>
+                    <button (click)='openEdit(reservation.id)' mat-raised-button id="edit">
+                        <img src="../../assets/images/edit.png">
+                    </button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

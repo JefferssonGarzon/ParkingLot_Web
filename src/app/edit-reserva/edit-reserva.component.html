@@ -1,0 +1,85 @@
+<h2 mat-dialog-title>Modificar</h2>
+<form [formGroup]='form_Edit'>
+    <mat-dialog-content>
+        <div>
+            <label><b>Hora inicial</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nueva Hora inicial</mat-label>
+                <input matInput formControlName="initial_hour">   
+            </mat-form-field>
+        </div>
+        <div>
+            <label><b>Hora final</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nueva Hora final</mat-label>
+                <input matInput formControlName="final_hour">   
+            </mat-form-field>
+        </div>
+        <div>
+            <label><b>Num. placa</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nuevo num. placa</mat-label>
+                <input matInput formControlName="number_plate">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <label><b>Tipo de vehiculo</b></label>
+            <br>
+            <label>Elija una opcion</label>
+            <br>
+            <br>
+            <mat-radio-group formControlName='vehicle_type'>
+                <mat-radio-button color='warn' value="auto">Auto</mat-radio-button>
+                <mat-radio-button class="rbtv" value="moto">Moto</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label><b>Slot</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nuevo slot</mat-label>
+                <input matInput formControlName="slot">
+            </mat-form-field>
+        </div>
+        <div>
+            <label><b>Num. documento</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nuevo num. Documento</mat-label>
+                <input matInput formControlName="document_number">   
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <label><b>Email</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese nuevo Email</mat-label>
+                <input matInput formControlName='email'>
+            </mat-form-field>
+        </div>
+    
+        <div>
+            <label><b>Cancelado</b></label>
+            <br>
+            <label>Elija una opcion</label>
+            <br>
+            <br>
+            <mat-radio-group  formControlName='is_cancelled'>
+                <mat-radio-button value="True">Verdadero</mat-radio-button>
+                <mat-radio-button class="rb" value="False">Falso</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <br>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button (click)='onNoClick()' mat-raised-button class="notSave">Cerrar</button>
+        <button (click)='saveEdit(form_Edit.value)' mat-raised-button class="save">Guardar</button>
+    </mat-dialog-actions>
+</form>
+

@@ -1,9 +1,8 @@
-
 * {
-    margin: 1%;
-    font-family: Koho;
+    // padding: 1%;
+    // padding: 16px;
     font-size: 16px;
-    color: black;
+    font-family: Koho;
 }
 
 h1 {
@@ -12,9 +11,8 @@ h1 {
     margin-left: 15px;
 }
 
-mat-paginator {
-    background: gainsboro;
-    // justify-content: end;
+div {
+    margin-left: 20px;
 }
 
 .busqueda {
@@ -26,13 +24,14 @@ mat-paginator {
     background: rgb(216, 146, 16);
 }
 
-.all-list {
+.all-listt {
     background: #e4e713;
     color: black;
+    margin-bottom: 15px;
     margin-left: 15px;
 }
 
-.all-list:hover {
+.all-listt:hover {
     background: #bfc21b;
 }
 
@@ -47,7 +46,6 @@ mat-paginator {
 
 #edit {
     background: rgb(7, 194, 7);
-    text-decoration: none;
 }
 
 #edit:hover {
