@@ -47,6 +47,7 @@ export class ListarReservasComponent implements OnInit {
       })
     }, error => {
       console.log(error.status)
+      alert(`Error al eliminar la reserva: ${reservation}`)
     })
   }
 

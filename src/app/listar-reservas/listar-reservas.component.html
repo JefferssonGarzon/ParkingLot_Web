@@ -12,6 +12,7 @@
                     <th scope="col">Placa</th>
                     <th scope="col">Vehiculo</th>
                     <th scope="col">Slot</th>
+                    <th scope="col">Estado</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                     <td> {{ reservation.number_plate }} </td>
                     <td> {{ reservation.vehicle_type }} </td>
                     <td> {{ reservation.slot }} </td>
+                    <td> {{reservation.status}} </td>
                     <button  (click)='getDelReservation(reservation.id )' mat-raised-button id="delete">
                         <span class="material-icons">
                             delete

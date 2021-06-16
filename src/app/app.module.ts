@@ -33,6 +33,7 @@ import { StartingScreenComponent } from './starting-screen/starting-screen.compo
 import { PnfDashboardComponent } from './pnf-dashboard/pnf-dashboard.component';
 import { ListarReservasComponent } from './listar-reservas/listar-reservas.component';
 import { EditReservaComponent } from './edit-reserva/edit-reserva.component';
+import { PagarReservaComponent } from './pagar-reserva/pagar-reserva.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { EditReservaComponent } from './edit-reserva/edit-reserva.component';
     StartingScreenComponent,
     PnfDashboardComponent,
     EditReservaComponent,
+    PagarReservaComponent,
   ],
   imports: [
     BrowserModule,

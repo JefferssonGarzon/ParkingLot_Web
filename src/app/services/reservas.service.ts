@@ -38,4 +38,16 @@ export class ReservasService {
     this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
     return this.http.patch(environment.URL + `api/v1/reservation/${reservation}`, body, {headers: this.headers});
   }
+
+  getPayment(reservation:string){
+    this.headers['Content-Type'] = 'application/json';
+    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    return this.http.get(environment.URL + `api/v1/reservation/price/${reservation}`, {headers: this.headers});
+  }
+
+  postPay(body: any){
+    this.headers['Content-Type'] = 'application/json';
+    this.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
+    return this.http.post(environment.URL + 'api/v1/payment', body, {headers: this.headers});
+  }
 }

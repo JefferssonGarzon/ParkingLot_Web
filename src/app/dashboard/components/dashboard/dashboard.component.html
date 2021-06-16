@@ -20,7 +20,7 @@
                 <a (click)="sidebar.close()" routerLink="/dashboard/reservas">Ver reserva</a>
             </div>
             <div class="opciones">
-                <a>Pagar reserva</a>
+                <a (click)="openEdit()" >Pagar reserva</a>
             </div>
             <hr>
             <a (click)="onLogout()" class="sal-btn" routerLink='/'>Cerrar sesion</a>

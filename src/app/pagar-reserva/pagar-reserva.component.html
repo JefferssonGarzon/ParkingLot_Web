@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Pagar</h2>
+<form [formGroup]='form_Edit'>
+    <mat-dialog-content>
+        <div>
+            <label><b>Reserva</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese el id de la reserva</mat-label>
+                <input ngModel (ngModelChange)="setId($event)" matInput formControlName="reservation_id">   
+            </mat-form-field>
+        </div>
+        <button (click)="calcular()"  mat-raised-button class="notSave">Calcular Precio</button>
+        <div>
+            <label><b>Precio</b></label><br>
+            <mat-label>Precio de la reserva</mat-label><br>
+            <b>$ {{price_reservation}}</b>
+            <br>
+        </div>
+        <div>
+            <label><b>Concepto</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Concepto de pago</mat-label>
+                <input  matInput formControlName="concept" value="2000">
+            </mat-form-field>
+        </div>
+        
+        <div>
+            <label><b>Estado</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Estado de pago</mat-label>
+                <input matInput formControlName="state">
+            </mat-form-field>
+        </div>
+        <br>
+    
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button (click)='onNoClick()' mat-raised-button class="notSave">Cerrar</button>
+        <button (click)='saveEdit(form_Edit.value)' mat-raised-button class="save">Efectuar Pago</button>
+    </mat-dialog-actions>
+</form>
+
