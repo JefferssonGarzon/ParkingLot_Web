@@ -35,6 +35,9 @@ import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator'
 import { ListarReservasComponent } from './listar-reservas/listar-reservas.component';
 import { EditReservaComponent } from './edit-reserva/edit-reserva.component';
 import { PagarReservaComponent } from './pagar-reserva/pagar-reserva.component';
+import { CrearReservaComponent } from './crear-reserva/crear-reserva.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,7 @@ import { PagarReservaComponent } from './pagar-reserva/pagar-reserva.component';
     PnfDashboardComponent,
     EditReservaComponent,
     PagarReservaComponent,
+    CrearReservaComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,8 @@ import { PagarReservaComponent } from './pagar-reserva/pagar-reserva.component';
     MatCheckboxModule,
     MatRadioModule,
     MatPaginatorModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [{
     provide: MatPaginatorIntl,
