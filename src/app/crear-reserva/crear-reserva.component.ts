@@ -36,7 +36,6 @@ export class CrearReservaComponent implements OnInit {
       document: new FormControl(''),
       email: new FormControl(''),
       initial_hour: new FormControl(fechaFormat),
-      slot: new FormControl(''),
       number_plate: new FormControl(''),
       vehicle_type: new FormControl(''),
     })
