@@ -35,7 +35,9 @@ export class UserService {
     var endRange = (page * size) - 1;
     this.headers['Range'] = `${startRange}-${endRange}`
     this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    console.log(this.user);
     this.headers['Authorization'] = 'Bearer ' + this.user;
+    console.log("header:", this.headers['Authorization']);
     return this.http.get(environment.URL + 'api/v1/user', {headers: this.headers});
   }
 
