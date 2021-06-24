@@ -48,7 +48,6 @@ export class CrearReservaComponent implements OnInit {
       }
     })
     this.dEdit = data;
-    console.log(data)
     this.reservasService.createReservation(this.dEdit).subscribe(dataE => {
       alert('Reserva creada Exitosamente');
       this.onNoClick();
