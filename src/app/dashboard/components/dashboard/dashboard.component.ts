@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PagarReservaComponent } from '../../../pagar-reserva/pagar-reserva.component';
+import { CrearReservaComponent } from 'src/app/crear-reserva/crear-reserva.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +29,16 @@ export class DashboardComponent implements OnInit {
     });
 
     editRef.afterClosed().subscribe(() => {
+    })
+  }
+
+  openCreate(){
+    const createRef = this.dialog.open(CrearReservaComponent, {
+      width:'500px',
+      height:'600px',
+    })
+
+    createRef.afterClosed().subscribe(() => {
     })
   }
 

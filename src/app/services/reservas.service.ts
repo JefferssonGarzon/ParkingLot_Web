@@ -16,6 +16,13 @@ export class ReservasService {
     this.headers['Content-Type'] = 'application/json';
   }
 
+  createReservation(body : any){
+    this.headers['Content-Type'] = 'application/json';
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user;
+    return this.http.post(environment.URL + 'api/v1/reservation', body, {headers: this.headers});
+  }
+
   viewReservations(page: number, size: number) {
     var startRange = ((page * size) - size);
     var endRange = (page * size) - 1;
