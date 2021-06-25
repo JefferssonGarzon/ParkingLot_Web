@@ -21,7 +21,7 @@
     width: 100%;
     padding: 15px;
     color: black;
-    text-decoration: none;
+    cursor: pointer;
 }
 
 .opciones:hover {
@@ -55,4 +55,9 @@ a:hover {
 
 #close {
     text-decoration: none;
+    cursor: pointer;
+}
+
+#mem {
+    cursor: pointer;
 }

@@ -9,4 +9,5 @@ export interface user {
     gender: string;
     number_plate: string;
     vehicle_type: string;
+    is_active: boolean;
 }

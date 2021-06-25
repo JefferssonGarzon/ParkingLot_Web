@@ -43,11 +43,11 @@
           </mat-expansion-panel>
     </mat-accordion>
     <hr>
-
     <mat-grid-list cols="5" rowHeight="1:1">
             <mat-grid-tile (click)='viewData(slot)' *ngFor='let slot of viewSlots'
         [ngClass]='{Ocupado:status[slot],Disponible:!status[slot]}'> 
             <p><b>{{ codeSlot[slot] }}</b></p>
         </mat-grid-tile>
     </mat-grid-list>
+    <hr>
 </div>

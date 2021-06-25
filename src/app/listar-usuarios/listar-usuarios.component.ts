@@ -44,6 +44,8 @@ export class ListarUsuariosComponent extends MatPaginatorIntl implements OnInit{
     this.userService.viewUsers(this.numPag, this.tamPag).subscribe(data => {
       this.users = data['data'];
       this.lenght = data['count'];
+      console.log(this.users);
+      
     },error => {
       console.log(error.status);
     })    

@@ -19,21 +19,32 @@
     <div>
         <table class="table table-striped">
             <thead class="">
-                <tr>
+                <tr align="center">
                     <th scope="col">NumDocumento</th>
                     <th scope="col">Nombres</th>
                     <th scope="col">Email</th>
                     <th scope="col">NumTelefono</th>
                     <th scope="col">Genero</th>
+                    <th scope="col">
+                        Estado  
+                        (<img id="able" src="../../assets/images/active.png" alt="able">:Activo / 
+                        <img id="disable" src="../../assets/images/disable.png" alt="disable">: No activo )
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let user of users'>
+                <tr align="center" *ngFor='let user of users'>
                     <td> {{ user.document }} </td>
                     <td> {{ user.name }} </td>
                     <td> {{ user.email }} </td>
                     <td> {{ user.cellphone }} </td>
                     <td> {{ user.gender }} </td>
+                    <td *ngIf='user.is_active'>
+                        <img id="able" src="../../assets/images/active.png" alt="able">
+                    </td>
+                    <td *ngIf='!user.is_active'>
+                        <img id="disable" src="../../assets/images/disable.png" alt="disable">
+                    </td>
                     <button (click)='getDelUser(user.id)' mat-raised-button id="delete">
                         <img src="../../assets/images/delete.png">
                     </button>
