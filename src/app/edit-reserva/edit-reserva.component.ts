@@ -50,7 +50,6 @@ export class EditReservaComponent implements OnInit {
       }
     })
     this.dEdit = data;
-    console.log(this.dEdit);
 
     this.reservasService.modifyReservation(this.idReservation, this.dEdit).subscribe(dataE => {
       alert('modificacion exitosa');
