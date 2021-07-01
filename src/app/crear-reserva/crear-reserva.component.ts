@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { dataEdit } from '../models/editData.model';
@@ -32,6 +32,9 @@ export class CrearReservaComponent implements OnInit {
     },error => {
       alert('Error al consultar los slots disponibles')
     })
+
+    console.log(this.dEdit);
+    
   }
 
   onNoClick(){
@@ -56,6 +59,8 @@ export class CrearReservaComponent implements OnInit {
       }
     })
     this.dEdit = data;
+
+
     data['slot'] = parseInt(data['slot'])
     var fecha = new Date();
     var fechaFormat = ''

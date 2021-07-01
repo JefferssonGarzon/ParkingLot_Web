@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Datos } from '../models/slots.model';
 import { UserService } from '../services/user.service';
+import { ReservasService } from '../services/reservas.service';
 
 @Component({
   selector: 'app-parking-slots',
@@ -20,7 +21,7 @@ export class ParkingSlotsComponent implements OnInit {
   // para ver la info de c/slot
   place_code:string;
   statusSlot:string;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private reservaService: ReservasService) { }
 
   // info de reservas
   estado_reserva:string;
@@ -31,16 +32,18 @@ export class ParkingSlotsComponent implements OnInit {
   tipo_vehiculo:string;
 
 
-  // info de usuario registrado
+  // info de usuario 
   doc_user:string;
   name_user:string;
   email_user:string;
   gen_user:string;
 
   ngOnInit(){ 
+
     this.userService.slotsInfo().subscribe(data => {
       this.numSlots = data['count'];
       this.slots = data['data'];
+      console.log(this.slots);
       
       for(let i = 0; i < this.numSlots; i++) {
         this.viewSlots.push(i);
@@ -52,7 +55,12 @@ export class ParkingSlotsComponent implements OnInit {
           this.status.push(false);
         }
       }
-    })  
+    })
+    
+  //   this.reservaService.viewReservations(1,10).subscribe(data => {
+  //     this.userNotReg = data['data'];
+  //     console.log(this.userNotReg);
+  //   })
   }
 
   viewData(num:number){ 
@@ -68,6 +76,10 @@ export class ParkingSlotsComponent implements OnInit {
       this.hora_final = this.slots[num].reservation.final_hour;
       if (this.slots[num].reservation.document_number != null) {
         this.tipo_usuario = 'No registrado';
+        this.doc_user = this.slots[num].reservation.document_number;
+        this.name_user = 'No definido';
+        this.email_user = this.slots[num].reservation.email;
+        this.gen_user = 'No definido'
       }else {
         this.tipo_usuario = 'Registrado';
         this.doc_user = this.slots[num].reservation.user.document;
