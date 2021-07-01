@@ -17,14 +17,22 @@
             </thead>
             <tbody>
                 <tr *ngFor='let reservation of reservations'>
-                    <td> {{ reservation.id }} </td>
-                    <td> {{ reservation.user.name }} </td>
-                    <td> {{ reservation.initial_hour }} </td>
-                    <td> {{ reservation.final_hour }} </td>
-                    <td> {{ reservation.number_plate }} </td>
-                    <td> {{ reservation.vehicle_type }} </td>
-                    <td> {{ reservation.slot }} </td>
-                    <td> {{reservation.status}} </td>
+                    <td *ngIf='reservation.id'> {{ reservation.id }} </td>
+                    <td *ngIf='!reservation.id'> id desconocida</td>
+                    <td *ngIf='reservation.user'> {{ reservation.user.name }} </td>
+                    <td *ngIf='!reservation.user'> desconocido </td>
+                    <td *ngIf='reservation.initial_hour'> {{ reservation.initial_hour }} </td>
+                    <td *ngIf='!reservation.initial_hour'> hora no establecida </td>
+                    <td *ngIf='reservation.final_hour'>  {{ reservation.final_hour }} </td>
+                    <td *ngIf='!reservation.final_hour'> hora no establecida </td>
+                    <td *ngIf='reservation.number_plate'> {{ reservation.number_plate }} </td>
+                    <td *ngIf='!reservation.number_plate'> placa desconocida </td>
+                    <td *ngIf='reservation.vehicle_type'> {{ reservation.vehicle_type }} </td>
+                    <td *ngIf='!reservation.vehicle_type'> desconocido </td>
+                    <td *ngIf='reservation.slot'> {{ reservation.slot }} </td>
+                    <td *ngIf='!reservation.slot'> desconocido </td>
+                    <td *ngIf='reservation.status'> {{reservation.status}} </td>
+                    <td *ngIf='!reservation.status'> estado desconocido </td>
                     <button  (click)='getDelReservation(reservation.id )' mat-raised-button id="delete">
                         <img src="../../assets/images/delete.png">
                     </button>

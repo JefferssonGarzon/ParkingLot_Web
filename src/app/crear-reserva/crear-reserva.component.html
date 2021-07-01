@@ -22,7 +22,7 @@
             <br>
             <mat-form-field>
                 <mat-label>Ingrese nueva Hora inicial</mat-label>
-                <input matInput type="text" formControlName="initial_hour" >
+                <input matInput type="time" formControlName="initial_hour" >
             </mat-form-field>
         </div>
         <div>
@@ -31,6 +31,16 @@
             <mat-form-field>
                 <mat-label>Ingrese nuevo num. placa</mat-label>
                 <input matInput formControlName="number_plate">
+            </mat-form-field>
+        </div>
+        <div>
+            <label><b>Slot</b></label>
+            <br>
+            <mat-form-field>
+                <mat-label>Ingrese slot</mat-label>
+                <mat-select formControlName="slot">
+                    <mat-option *ngFor = "let slot of slots" [value]="slot" >{{slot}}</mat-option>
+                </mat-select>
             </mat-form-field>
         </div>
         

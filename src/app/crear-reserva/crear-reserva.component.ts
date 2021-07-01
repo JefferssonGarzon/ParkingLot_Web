@@ -14,6 +14,7 @@ export class CrearReservaComponent implements OnInit {
   form_Edit: FormGroup;
   dEdit: dataEdit[];
   errorD: any[] = [];
+  slots = [];
 
   constructor(private edit: MatDialogRef<CrearReservaComponent>, 
     @Inject(MAT_DIALOG_DATA) public idReservation, 
@@ -22,6 +23,15 @@ export class CrearReservaComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.reservasService.getSlots().subscribe(data => {
+      data["data"].forEach(element => {
+        if(element.status == 'Disponible'){
+          this.slots.push(element.id)
+        }
+      });
+    },error => {
+      alert('Error al consultar los slots disponibles')
+    })
   }
 
   onNoClick(){
@@ -29,14 +39,12 @@ export class CrearReservaComponent implements OnInit {
   }
 
   private buildForm() {
-    var fecha = new Date();
-    var fechaFormat = fecha.toISOString().substring(0,10).concat(" ", fecha.toISOString().substring(11,16))
-    console.log(fecha.toISOString())
     this.form_Edit = new FormGroup({
       document: new FormControl(''),
       email: new FormControl(''),
-      initial_hour: new FormControl(fechaFormat),
+      initial_hour: new FormControl(''),
       number_plate: new FormControl(''),
+      slot: new FormControl(''),
       vehicle_type: new FormControl(''),
     })
   }
@@ -48,7 +56,11 @@ export class CrearReservaComponent implements OnInit {
       }
     })
     this.dEdit = data;
-    console.log(data)
+    data['slot'] = parseInt(data['slot'])
+    var fecha = new Date();
+    var fechaFormat = ''
+    fechaFormat = fecha.toISOString().substring(0,10).concat(" ", data['initial_hour'])
+    data['initial_hour'] = fechaFormat
     this.reservasService.createReservation(this.dEdit).subscribe(dataE => {
       alert('Reserva creada Exitosamente');
       this.onNoClick();

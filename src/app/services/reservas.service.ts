@@ -64,4 +64,11 @@ export class ReservasService {
     this.headers['Authorization'] = 'Bearer ' + this.user;
     return this.http.post(environment.URL + 'api/v1/payment', body, {headers: this.headers});
   }
+
+  getSlots(){
+    this.headers['Content-Type'] = 'application/json';
+    this.user = localStorage.getItem('token')? localStorage.getItem('token') : sessionStorage.getItem('token');
+    this.headers['Authorization'] = 'Bearer ' + this.user;
+    return this.http.get(environment.URL + 'api/v1/parking_slot', {headers: this.headers});
+  }
 }

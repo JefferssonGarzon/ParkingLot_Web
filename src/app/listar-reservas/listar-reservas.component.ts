@@ -26,6 +26,7 @@ export class ListarReservasComponent implements OnInit {
   ngOnInit() {
     this.reservasService.viewReservations(this.numPag, this.tamPag).subscribe(data => {
       this.reservations= data['data'];
+      console.log(this.reservations)
     },error => {
       console.log(error.status);
     })
